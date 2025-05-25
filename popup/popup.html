@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Transcript Summarizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>YouTube Transcript Summarizer</h1>
+    </header>
+    
+    <main>
+      <section class="settings">
+        <h2>AI Platform</h2>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="chatgpt" name="ai-platform" value="chatgpt">
+            <label for="chatgpt">ChatGPT</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="gemini" name="ai-platform" value="gemini">
+            <label for="gemini">Gemini</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="claude" name="ai-platform" value="claude">
+            <label for="claude">Claude</label>
+          </div>
+        </div>
+      </section>
+      
+      <section class="prompt-section">
+        <h2>Custom Prompt</h2>
+        <textarea id="custom-prompt" placeholder="Summarize this YouTube video: [transcript]"></textarea>
+      </section>
+      
+      <div class="actions">
+        <button id="save-settings" class="primary-button">Save Settings</button>
+      </div>
+    </main>
+    
+    <footer>
+      <p>Use on YouTube videos to extract and summarize transcripts</p>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

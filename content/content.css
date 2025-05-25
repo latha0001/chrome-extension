@@ -1,0 +1,356 @@
+/* YouTube Transcript Summarizer Styles */
+
+/* Summarize Button */
+.yts-summarize-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.yts-summarize-btn:hover {
+  opacity: 1;
+}
+
+.yts-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Sidebar */
+.yts-sidebar {
+  position: fixed;
+  top: 56px; /* YouTube header height */
+  right: 0;
+  width: 350px;
+  height: calc(100vh - 56px);
+  background-color: white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.yts-sidebar-hidden {
+  transform: translateX(100%);
+}
+
+/* Video container adjustment */
+.yts-video-container-adjusted {
+  width: calc(100% - 350px) !important;
+  transition: width 0.3s ease;
+}
+
+/* Sidebar Header */
+.yts-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #e5e5e5);
+  background-color: white;
+}
+
+.yts-sidebar-header h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: #0F0F0F;
+}
+
+.yts-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #606060;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.yts-close-btn:hover {
+  background-color: #F2F2F2;
+}
+
+/* Actions Bar */
+.yts-actions-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #e5e5e5);
+}
+
+.yts-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.yts-copy-btn {
+  background-color: #F2F2F2;
+  color: #0F0F0F;
+}
+
+.yts-copy-btn:hover {
+  background-color: #E5E5E5;
+}
+
+.yts-summarize-action-btn {
+  background-color: #FF0000;
+  color: white;
+}
+
+.yts-summarize-action-btn:hover {
+  background-color: #D90000;
+}
+
+/* Transcript Container */
+.yts-transcript-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background-color: #F9F9F9;
+}
+
+/* Loading Indicator */
+.yts-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  gap: 16px;
+  color: #606060;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.yts-spinner {
+  animation: spin 1.5s linear infinite;
+}
+
+/* Error Message */
+.yts-error-message {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  gap: 16px;
+  color: #D93025;
+  text-align: center;
+}
+
+/* Transcript Content */
+.yts-transcript-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yts-transcript-segment {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.yts-transcript-segment:hover {
+  background-color: #F0F0F0;
+}
+
+.yts-timestamp {
+  color: #065FD4;
+  font-weight: 500;
+  font-size: 14px;
+  min-width: 40px;
+}
+
+.yts-text {
+  font-size: 14px;
+  color: #0F0F0F;
+  line-height: 1.4;
+}
+
+/* Modal Styles */
+.yts-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.yts-modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.yts-modal-header {
+  padding: 16px;
+  border-bottom: 1px solid #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.yts-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0F0F0F;
+}
+
+.yts-modal-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #606060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.yts-modal-close:hover {
+  background-color: #F2F2F2;
+}
+
+.yts-modal-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.yts-platform-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yts-platform-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yts-platform-option input[type="radio"] {
+  accent-color: #FF0000;
+}
+
+.yts-prompt-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.yts-prompt-container label {
+  font-weight: 500;
+}
+
+.yts-prompt-container textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 8px;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.yts-prompt-info {
+  font-size: 12px;
+  color: #606060;
+  margin: 0;
+}
+
+.yts-modal-footer {
+  padding: 16px;
+  border-top: 1px solid #E5E5E5;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.yts-modal-cancel {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.yts-modal-cancel:hover {
+  background-color: #F2F2F2;
+}
+
+.yts-modal-save {
+  padding: 8px 16px;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.yts-modal-save:hover {
+  background-color: #D90000;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .yts-sidebar {
+    width: 100%;
+    top: 56px;
+  }
+  
+  .yts-video-container-adjusted {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Transcript Summarizer - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>YouTube Transcript Summarizer</h1>
+      <p>Configure your preferences for summarizing YouTube transcripts</p>
+    </header>
+    
+    <main>
+      <section class="settings-section">
+        <h2>AI Platform</h2>
+        <p class="section-description">Choose your preferred AI platform for summarization:</p>
+        
+        <div class="platform-options">
+          <div class="platform-option">
+            <input type="radio" id="chatgpt" name="ai-platform" value="chatgpt">
+            <label for="chatgpt">
+              <span class="platform-name">ChatGPT</span>
+              <span class="platform-url">chat.openai.com</span>
+            </label>
+          </div>
+          
+          <div class="platform-option">
+            <input type="radio" id="gemini" name="ai-platform" value="gemini">
+            <label for="gemini">
+              <span class="platform-name">Gemini</span>
+              <span class="platform-url">gemini.google.com</span>
+            </label>
+          </div>
+          
+          <div class="platform-option">
+            <input type="radio" id="claude" name="ai-platform" value="claude">
+            <label for="claude">
+              <span class="platform-name">Claude</span>
+              <span class="platform-url">claude.ai</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Custom Prompt</h2>
+        <p class="section-description">Customize your prompt for summarizing transcripts:</p>
+        
+        <div class="prompt-container">
+          <textarea id="custom-prompt" placeholder="Summarize this YouTube video: [transcript]"></textarea>
+          <p class="prompt-help">Use [transcript] to indicate where the video transcript should be inserted.</p>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <div class="status-message" id="status-message"></div>
+      <button id="save-button" class="save-button">Save Settings</button>
+    </footer>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
