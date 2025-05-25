@@ -48,7 +48,3 @@ This extension can be loaded directly as an unpacked extension for development. 
 1. Remove any console logs
 2. Optimize images
 3. Minify CSS and JavaScript files
-
-## License
-
-MIT
